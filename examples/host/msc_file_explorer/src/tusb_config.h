@@ -95,18 +95,17 @@
 // Size of buffer to hold descriptors and other data used for enumeration
 #define CFG_TUH_ENUMERATION_BUFSIZE 256
 
-// only hub class is enabled
-#define CFG_TUH_HUB                 1
+#define CFG_TUH_HUB                 1 // number of supported hubs
+#define CFG_TUH_MSC                 1
+#define CFG_TUH_CDC                 0
+#define CFG_TUH_HID                 0 // typical keyboard + mouse device can have 3-4 HID interfaces
+#define CFG_TUH_VENDOR              0
 
 // max device support (excluding hub device)
-// 1 hub typically has 4 ports
-#define CFG_TUH_DEVICE_MAX          (CFG_TUH_HUB ? 4 : 1)
+#define CFG_TUH_DEVICE_MAX          (CFG_TUH_HUB ? 4 : 1) // hub typically has 4 ports
 
-// Max endpoint per device
-#define CFG_TUH_ENDPOINT_MAX        8
-
-// Enable tuh_edpt_xfer() API
-#define CFG_TUH_API_EDPT_XFER       1
+//------------- MSC -------------//
+#define CFG_TUH_MSC_MAXLUN    4 // typical for most card reader
 
 #ifdef __cplusplus
  }
